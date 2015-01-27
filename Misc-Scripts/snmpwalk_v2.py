@@ -4,8 +4,8 @@ cmdGen = cmdgen.CommandGenerator()
 
 errorIndication, errorStatus, errorIndex, varBindTable = cmdGen.nextCmd(
     cmdgen.CommunityData('public'),
-    cmdgen.UdpTransportTarget(('demo.snmplabs.com', 161)),
-    #cmdgen.UdpTransportTarget(('127.0.0.1', 161)),
+    #cmdgen.UdpTransportTarget(('demo.snmplabs.com', 161)),
+    cmdgen.UdpTransportTarget(('127.0.0.1', 161)),
     '1.3.6.1.2.1.2.2.1.2',
     '1.3.6.1.2.1.2.2.1.3',
 )
