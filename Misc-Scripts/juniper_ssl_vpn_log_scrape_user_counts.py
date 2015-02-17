@@ -10,7 +10,7 @@ from __future__ import print_function
 # I wrote this.
 # Me.  Brad!?  Yeah, that guy.
 
-infile = "C:\\Users\\bfears\\Downloads\\juniper.cc-prd.access.20150213-a.log"
+infile = "C:\\Users\\bfears\\Downloads\\juniper.cc-prd.access.20150213.log"
 
 ## Open the file with read only permit.
 f = open(infile, "r")
@@ -22,7 +22,7 @@ lines = f.readlines()
 ## Close the file after reading the lines.
 f.close()
 
-ipList = []
+#ipList = []
 nameList = []
 
 
@@ -31,29 +31,29 @@ nameList = []
 
 import re
 for index in range(0,len(lines)):
-	regex_ip = '\[[0-9]+(?:\.[0-9]+){3}\]'
+	#regex_ip = '\[[0-9]+(?:\.[0-9]+){3}\]'
 	regex_username = '\[[0-9]+(?:\.[0-9]+){3}](.+?)\(MSU Net\)\[_MSUNet.users]'
 
-	user_outside_IP = re.findall(regex_ip, lines[index])
-	if user_outside_IP[0]:
-		raw_outside_IP = user_outside_IP[0]
-		raw_outside_IP = raw_outside_IP.replace('[', '')
-		raw_outside_IP = raw_outside_IP.replace(']', '')
-		ipList.append(raw_outside_IP)
+	#user_outside_IP = re.findall(regex_ip, lines[index])
+	#if user_outside_IP[0]:
+	#	raw_outside_IP = user_outside_IP[0]
+	#	raw_outside_IP = raw_outside_IP.replace('[', '')
+	#	raw_outside_IP = raw_outside_IP.replace(']', '')
+	#	ipList.append(raw_outside_IP)
 
-	if raw_outside_IP:
-		userName = re.findall(regex_username, lines[index])		
+	#if raw_outside_IP:
+	userName = re.findall(regex_username, lines[index])		
 
-		if len(userName) == 0:
-			userName_stripped = "NOBODY"			
-		else:
-			userName_stripped = userName[0]
+	if len(userName) == 0:
+		userName_stripped = "NOBODY"			
+	else:
+		userName_stripped = userName[0]
 			
-		userName_stripped = userName_stripped.replace('[','')
-		userName_stripped = userName_stripped.replace(']','')
-		userName_stripped = userName_stripped.replace(' ','')
+	userName_stripped = userName_stripped.replace('[','')
+	userName_stripped = userName_stripped.replace(']','')
+	userName_stripped = userName_stripped.replace(' ','')
 		
-		nameList.append(userName_stripped)
+	nameList.append(userName_stripped)
 			
 
 ## Now I have a list (array) of usernames and a list (array) of their IPs.
