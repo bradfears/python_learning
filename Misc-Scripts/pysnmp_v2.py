@@ -4,8 +4,8 @@ cmdGen = cmdgen.CommandGenerator()
 
 errorIndication, errorStatus, errorIndex, varBinds = cmdGen.getCmd(
     cmdgen.CommunityData('public'),
-    #cmdgen.UdpTransportTarget(('demo.snmplabs.com', 161)),
-    cmdgen.UdpTransportTarget(('127.0.0.1', 161)),
+    cmdgen.UdpTransportTarget(('demo.snmplabs.com', 161)),
+    #cmdgen.UdpTransportTarget(('35.9.81.6', 161)),
     cmdgen.MibVariable('SNMPv2-MIB', 'sysName', 0)
 )
 
